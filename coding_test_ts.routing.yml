@@ -1,0 +1,7 @@
+coding_test_ts.sum_form:
+  path: '/sumform'
+  defaults:
+    _title: 'Sum Form - Adding Numbers in Drupal 8'
+    _form: '\Drupal\coding_test_ts\Form\SumForm'
+  requirements:
+    _permission: 'access content'

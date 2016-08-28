@@ -1,0 +1,6 @@
+name: Coding Test TS
+description: A form in a module adding numbers in Drupal 8
+package: CUSTOM
+type: module
+version: 1.0
+core: 8.x
