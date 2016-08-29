@@ -1,4 +1,4 @@
-coding_test_ts.sum_form:
+coding_test_ts_sum_form:
   path: '/sumform'
   defaults:
     _title: 'Sum Form - Adding Numbers in Drupal 8'

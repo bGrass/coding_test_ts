@@ -1,0 +1,7 @@
+coding_test_ts.sum_form_menu:
+  title: 'Sum Form'
+  description: 'A test module for Drupal 8 that adds numbers'
+  parent: main
+  route_name: coding_test_ts_sum_form
+  menu_name: main
+  weight: 100

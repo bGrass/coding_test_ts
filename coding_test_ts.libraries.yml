@@ -1,0 +1,9 @@
+sum_form:
+  version: 1.x
+  css:
+    theme:
+      css/coding_test_ts.css: {}
+  js:
+    js/coding_test_ts.js: {}
+  dependencies:
+    - core/jquery

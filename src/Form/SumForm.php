@@ -9,8 +9,10 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\UrlHelper;
 
+
+
 /**
- * Contribute form.
+ * Sum form.
  */
 class SumForm extends FormBase {
   /**
@@ -25,7 +27,12 @@ class SumForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['form_title'] = array(
-    '#markup' => '<p>Enter two numbers into the form, hit submit to add them up.</p>'
+    '#markup' => '<div>Enter two numbers into the form, hit submit to add them up.</div>',
+    '#attached' => [
+      'library' => [
+        'coding_test_ts/sum_form',
+      ],
+    ]
     );
     $form['first_number'] = array(
       '#type' => 'textfield',
@@ -37,6 +44,10 @@ class SumForm extends FormBase {
       '#title' => t('Second Number:'),
       '#required' => TRUE,
     );
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => $this->t('Add Numbers')
+    );
     return $form;
  
   }
@@ -45,12 +56,25 @@ class SumForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    if (!is_numeric($form_state->getValue('first_number'))) {
+      $form_state->setErrorByName('first_number', $this->t('This entry is not a number.'));
+    }
+    if (!is_numeric($form_state->getValue('second_number'))) {
+      $form_state->setErrorByName('second_number', $this->t('This entry is not a number.'));
+    }
   }
 
   /**
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $num1 = $form_state->getValue('first_number');
+    $num2 = $form_state->getValue('second_number');
+    $sum = $num1 + $num2;
+    $sum = round($sum, 3);
+    $message = 'You entered ' . $num1 . ' + ' . $num2;
+    $message .= 'The answer is ' . $sum;
+    drupal_set_message($message);
   }
 }
 ?>
