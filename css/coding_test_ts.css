@@ -1,3 +1,9 @@
-#main {
-	background-color: green;
+/* Limit width of text input */
+form.coding-test-ts-sum-form input.form-text {
+	width: 7.5em;
+}
+
+/* Define color for ajax field validation */
+form.coding-test-ts-sum-form input.form-text.invalid {
+	background-color: orange;
 }

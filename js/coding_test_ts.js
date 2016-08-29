@@ -1,1 +1,3 @@
-alert("Hello JS!");
+jQuery( document ).ready(function() {
+    alert( "ready!" );
+});
